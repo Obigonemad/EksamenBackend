@@ -1,0 +1,37 @@
+### Get all trips
+GET {{url}}/trips
+
+### Get a trip by ID
+GET {{url}}/trips/1
+
+### Create a new trip
+POST {{url}}/trips
+Content-Type: application/json
+
+{
+  "starttime": "2024-12-01T10:00:00",
+  "endtime": "2024-12-02T18:00:00",
+  "longitude": 34.0522,
+  "latitude": -118.2437,
+  "name": "Beach Getaway",
+  "price": 200.0,
+  "category": "BEACH"
+}
+
+### Update a trip
+PUT {{url}}/trips/1
+Content-Type: application/json
+
+{
+  "name": "Updated Beach Getaway",
+  "price": 250.0
+}
+
+### Delete a trip
+DELETE{{url}}/trips/1
+
+### Add a guide to a trip
+PUT {{url}}/trips/1/guides/1
+
+### Populate the database with sample trips and guides
+POST {{url}}/trips/populate

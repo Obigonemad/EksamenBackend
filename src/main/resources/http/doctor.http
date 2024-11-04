@@ -1,0 +1,90 @@
+### A simple get request to the test endpoint. No need for login
+GET {{url}}/auth/test/
+
+### Create a new user - this one will only get a USER role by default
+POST {{url}}/auth/register/
+
+{
+    "username": "user",
+    "password": "test123"
+}
+
+###
+POST {{url}}/auth/login/
+
+{
+    "username": "user",
+    "password": "test123"
+}
+
+> {%
+    client.global.set("jwt_token", response.body.token);
+    console.log("JWT Token:", client.global.get("jwt_token"));
+%}
+
+###
+GET {{url}}/protected/user_demo/
+Accept: application/json
+Authorization: Bearer {{jwt_token}}
+
+###
+GET {{url}}/protected/admin_demo/
+Accept: application/json
+Authorization: Bearer {{jwt_token}}
+
+### Add admin role to user
+POST {{url}}/auth/user/addrole/
+Accept: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+    "role": "superman"
+}
+Accept: application/json
+Authorization: Bearer {{jwt_token}}
+
+
+### Populate the database with some doctors
+POST {{url}}/doctors/populate
+Accept: application/json
+Authorization: Bearer {{jwt_token}}
+
+### Get all doctors
+GET {{url}}/doctors
+Accept: application/json
+
+### Get doctor by ID
+GET {{url}}/doctors/2
+
+### Get doctors by speciality
+GET {{url}}/doctors/speciality/FAMILY_MEDICINE
+
+### Get doctors by birthdate range
+GET {{url}}/doctors/birthdate/range?from=1980-01-01&to=1990-01-01
+accept: application/json
+
+### Create a new doctor
+POST {{url}}/doctors
+Content-Type: application/json
+
+{
+  "id": 8,
+  "name": "Dr. New Doctor",
+  "dateOfBirth": "1990-06-15",
+  "yearOfGraduation": 2015,
+  "nameOfClinic": "New Health Clinic",
+  "speciality": "PEDIATRICS"
+}
+
+### Update an existing doctor
+PUT {{url}}doctors/2
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "Dr. Bob Updated",
+  "dateOfBirth": "1980-08-05",
+  "yearOfGraduation": 2005,
+  "nameOfClinic": "Updated Medical Center",
+  "speciality": "SURGERY"
+}
