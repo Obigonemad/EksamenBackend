@@ -1,8 +1,5 @@
 package dat.config;
 
-import dat.entities.Appointment;
-import dat.entities.Doctor;
-
 
 import dat.entities.Guide;
 import dat.entities.Trip;
@@ -51,8 +48,7 @@ public class HibernateConfig {
         configuration.addAnnotatedClass(User.class);
         configuration.addAnnotatedClass(Trip.class);
         configuration.addAnnotatedClass(Guide.class);
-        configuration.addAnnotatedClass(Doctor.class);
-        configuration.addAnnotatedClass(Appointment.class);
+
     }
 
     private static EntityManagerFactory createEMF(boolean forTest) {

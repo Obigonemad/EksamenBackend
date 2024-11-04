@@ -2,7 +2,6 @@ package dat.routes;
 
 import dat.config.ApplicationConfig;
 import dat.config.HibernateConfig;
-import dat.daos.impl.DoctorDAO;
 import dat.daos.impl.TripDAO;
 import dat.exceptions.ApiException;
 import dat.security.controllers.SecurityController;
@@ -17,11 +16,8 @@ import jakarta.persistence.EntityManagerFactory;
 import org.junit.jupiter.api.*;
 import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.util.AbstractList;
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 @Disabled
 class RouteTest  {

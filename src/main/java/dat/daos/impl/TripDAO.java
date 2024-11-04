@@ -2,9 +2,7 @@ package dat.daos.impl;
 
 import dat.daos.IDAO;
 import dat.daos.ITripGuideDAO;
-import dat.dtos.DoctorDTO;
 import dat.dtos.TripDTO;
-import dat.entities.Doctor;
 import dat.entities.Guide;
 import dat.entities.Trip;
 import dat.enums.TripCategory;

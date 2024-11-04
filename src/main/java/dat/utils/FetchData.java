@@ -1,7 +1,6 @@
 package dat.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dat.dtos.DoctorDTO;
 import dat.dtos.PackingItemsDTO;
 
 import java.net.URI;
